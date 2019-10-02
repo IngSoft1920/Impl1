@@ -1,7 +1,7 @@
 package ingsoft1920.impl1.model;
 
 public class HotelInfoModel {
-	private int hotelInfoId;
+	private int hotelInfoId=-1;
 	private int numHabs;
 	private String nombreHotel;
 	

@@ -7,7 +7,7 @@ import ingsoft1920.impl1.beans.NewReservaBean;
 
 public class ReservaModel {
 
-	private int idReserva;
+	private int idReserva=-1;
 	private int idUsuario;
 	private Date dateReserva;
 	private int idHotel;
