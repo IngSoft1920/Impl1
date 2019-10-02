@@ -20,9 +20,10 @@ public class ReservaDAO {
 			ps.setInt(3, reservaModel.getIdTarifa());
 			ps.setInt(4, reservaModel.getNumHabs());
 
-			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
-				return getByReservaId(rs.getInt("idReserva"));
+			ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs.next()){
+				return getByReservaId(rs.getInt(1));
 			}else{
 				return null;
 			}

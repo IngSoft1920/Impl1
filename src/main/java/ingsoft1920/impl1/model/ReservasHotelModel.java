@@ -1,21 +1,27 @@
 package ingsoft1920.impl1.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReservasHotel {
+public class ReservasHotelModel {
+	private HotelInfoModel hotelInfo;
 	private Map<Date, Integer> habsDisponibles;
 	private Map<Date, List<ReservaModel>> reservas;
 	
-	public ReservasHotel() {}
+	public ReservasHotelModel() {}
+	
+	public ReservasHotelModel(HotelInfoModel hotelInfoModel) {
+		this.hotelInfo = hotelInfoModel;
+		this.habsDisponibles=new HashMap<Date, Integer>();
+	}
 	
 	public int getHabsDisponibles(Date dia) {
-		if(habsDisponibles.containsKey(dia)) {
-			return this.habsDisponibles.get(dia);
-		}else{
-			return -1;
+		if(!habsDisponibles.containsKey(dia)){
+			this.habsDisponibles.put(dia, this.hotelInfo.getNumHabs());			
 		}
+		return this.habsDisponibles.get(dia);
 	}
 	
 	public boolean reservaHabitacion(ReservaModel reserva) {
@@ -24,6 +30,7 @@ public class ReservasHotel {
 		if(getHabsDisponibles(dia)>=num) {
 			this.habsDisponibles.put(dia, this.habsDisponibles.get(dia)-num);
 			this.reservas.get(dia).add(reserva);
+			
 			return true;
 		}else {
 			return false;
