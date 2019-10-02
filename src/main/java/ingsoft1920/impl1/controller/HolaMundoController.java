@@ -1,4 +1,4 @@
-package ingsoft1920.impl1.Controller;
+package ingsoft1920.impl1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
