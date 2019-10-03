@@ -9,7 +9,16 @@ import ingsoft1920.impl1.model.ReservasHotelModel;
 
 public class ReservasHotelDAO {
 	public static List<ReservasHotelModel> getAll(){
-		return new ArrayList<ReservasHotelModel>();
+		List<ReservasHotelModel> res = new ArrayList<ReservasHotelModel>();
+		
+		List<Integer> listaIds = HotelInfoDAO.getAllIds();
+		
+		for(Integer i : listaIds) {
+			ReservasHotelModel model = getByIdHotel(i);
+			res.add(model);
+		}
+		
+		return res;
 	}
 	
 	public static ReservasHotelModel getByIdHotel(int idHotel) {

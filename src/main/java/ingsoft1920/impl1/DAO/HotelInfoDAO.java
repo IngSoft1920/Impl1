@@ -3,6 +3,8 @@ package ingsoft1920.impl1.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import ingsoft1920.impl1.model.HotelInfoModel;
 import ingsoft1920.impl1.services.MySQLService;
@@ -47,6 +49,24 @@ public class HotelInfoDAO {
 			}else {
 				return null;
 			}		
+		}catch (Exception ex) {
+			System.err.println(ex.getLocalizedMessage());
+			return null;
+		}
+	}
+
+	public static List<Integer> getAllIds() {
+		List<Integer> result = new ArrayList<Integer>();
+		
+		String query = "SELECT hotelInfoId FROM t_hotelInfo";
+		try (Connection con = (new MySQLService()).getConnection();
+				PreparedStatement ps = con.prepareStatement(query)) {
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				result.add(rs.getInt("hotelInfoId"));
+			}
+			return result;
 		}catch (Exception ex) {
 			System.err.println(ex.getLocalizedMessage());
 			return null;

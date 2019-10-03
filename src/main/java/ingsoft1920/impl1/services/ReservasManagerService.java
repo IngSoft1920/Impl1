@@ -1,10 +1,12 @@
 package ingsoft1920.impl1.services;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import ingsoft1920.impl1.DAO.ReservasHotelDAO;
 import ingsoft1920.impl1.model.ReservaModel;
 import ingsoft1920.impl1.model.ReservasHotelModel;
 
@@ -16,7 +18,10 @@ public class ReservasManagerService {
 	public ReservasManagerService() {
 		this.reservasHotel=new HashMap<Integer, ReservasHotelModel>();
 		
-		populateData();
+		List<ReservasHotelModel> lista = ReservasHotelDAO.getAll();
+		for(ReservasHotelModel model : lista) {
+			reservasHotel.put(model.getHotelInfo().getHotelInfoId(), model);
+		}
 	}
 	
 	public void hacerReserva(ReservaModel reservaModel) throws Exception{
