@@ -14,8 +14,8 @@ import ingsoft1920.impl1.model.ReservasHotelModel;
 public class ReservasManagerService {
 	private Map<Integer,ReservasHotelModel> reservasHotel;
 	
-	
-	public ReservasManagerService() {
+	public ReservasManagerService() {}
+	public ReservasManagerService(int asd) {
 		this.reservasHotel=new HashMap<Integer, ReservasHotelModel>();
 		
 		List<ReservasHotelModel> lista = ReservasHotelDAO.getAll();
@@ -32,10 +32,10 @@ public class ReservasManagerService {
 		}
 	}
 	
-	private void populateData() {
-		this.reservasHotel.put(0, new ReservasHotelModel());
-		//Placeholder data
-		
-		//Traer de bbdd todos datos guardados
-	}
+//	private void populateData() {
+//		this.reservasHotel.put(0, new ReservasHotelModel());
+//		//Placeholder data
+//		
+//		//Traer de bbdd todos datos guardados
+//	}
 }

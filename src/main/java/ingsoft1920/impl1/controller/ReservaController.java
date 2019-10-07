@@ -15,7 +15,7 @@ import ingsoft1920.impl1.services.ReservasManagerService;
 
 @Controller
 public class ReservaController {
-	@Autowired
+	//@Autowired
 	ReservasManagerService rms;
 
 	@GetMapping("/reservar")

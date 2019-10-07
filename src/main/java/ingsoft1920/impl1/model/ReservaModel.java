@@ -4,8 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import ingsoft1920.impl1.beans.NewReservaBean;
+import ingsoft1920.impl1.interfaces.ReservaAC;
 
-public class ReservaModel {
+public class ReservaModel extends ReservaAC {
 
 	private int idReserva=-1;
 	private int idUsuario;
@@ -89,5 +90,12 @@ public class ReservaModel {
 	public boolean checkValidData() {
 		//TODO
 		return true;		
+	}
+
+	@Override
+	public UsuarioModel getDatosCliente() {
+		UsuarioModel m = new UsuarioModel(0);
+		m.getIdUsuario();
+		return m;
 	}
 }
